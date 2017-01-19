@@ -23,7 +23,8 @@ namespace DependencyInjection.Console
             optionSet.Parse(args);
 
             AsciiWriter asciiWriter = new AsciiWriter();
-            var app = new PatternApp(new PatternGenerator(new CircleSquarePainter()), new PatternWriter(useColors ? (ICharacterWriter) new ColorWriter(asciiWriter) : asciiWriter));
+            PatternGenerator patternGenerator = new PatternGenerator(new CircleSquarePainter());
+            var app = new PatternApp(patternGenerator, new PatternWriter(useColors ? (ICharacterWriter) new ColorWriter(asciiWriter) : asciiWriter));
             app.Run(width, height);
 
             System.Console.ReadLine();
