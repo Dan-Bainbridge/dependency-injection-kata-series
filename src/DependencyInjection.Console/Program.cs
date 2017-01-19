@@ -1,4 +1,5 @@
-﻿using NDesk.Options;
+﻿using DependencyInjection.Console.SquarePainters;
+using NDesk.Options;
 
 namespace DependencyInjection.Console
 {
@@ -20,7 +21,7 @@ namespace DependencyInjection.Console
             };
             optionSet.Parse(args);
 
-            var app = new PatternApp(new PatternGenerator(), new PatternWriter(useColors));
+            var app = new PatternApp(new PatternGenerator(new CircleSquarePainter()), new PatternWriter(useColors));
             app.Run(width, height);
 
             System.Console.ReadLine();
