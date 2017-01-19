@@ -20,7 +20,7 @@ namespace DependencyInjection.Console
             };
             optionSet.Parse(args);
 
-            var app = new PatternApp(useColors, new PatternGenerator());
+            var app = new PatternApp(new PatternGenerator(), new PatternWriter(useColors));
             app.Run(width, height);
 
             System.Console.ReadLine();

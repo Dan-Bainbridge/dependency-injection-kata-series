@@ -5,9 +5,9 @@
         private readonly PatternWriter _patternWriter;
         private readonly PatternGenerator _patternGenerator;
 
-        public PatternApp(bool useColours, PatternGenerator patternGenerator)
+        public PatternApp(PatternGenerator patternGenerator, PatternWriter patternWriter)
         {
-            _patternWriter = new PatternWriter(useColours);
+            _patternWriter = patternWriter;
             _patternGenerator = patternGenerator;
         }
 
